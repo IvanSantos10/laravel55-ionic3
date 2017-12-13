@@ -23,3 +23,11 @@ $factory->define(\CodeFlix\Models\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->state(\CodeFlix\Models\User::class, 'admin', function (Faker $faker) {
+    static $password;
+
+    return [
+        'role' => \CodeFlix\Models\User::ROLE_ADMIN
+    ];
+});
